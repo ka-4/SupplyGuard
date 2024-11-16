@@ -1,0 +1,84 @@
+class BusinessTier:
+    def __init__(self, suppliers, risk_reporting, alerts, data_integrations, predictive_analytics, support):
+        self.suppliers = suppliers
+        self.risk_reporting = risk_reporting
+        self.alerts = alerts
+        self.data_integrations = data_integrations
+        self.predictive_analytics = predictive_analytics
+        self.support = support
+
+    def classify_tier(self):
+        """Classify the business into one of the four tiers based on their features."""
+        if self.suppliers <= 5:
+            tier = "Tier 1 (Small Businesses)"
+        elif self.suppliers <= 15:
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.suppliers <= 50:
+            tier = "Tier 3 (Large Enterprises)"
+        else:
+            tier = "Tier 4 (Global Enterprises)"
+        
+        if self.risk_reporting == 'Weekly':
+            tier = "Tier 1 (Small Businesses)"
+        elif self.risk_reporting == 'Daily':
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.risk_reporting == 'Real-time':
+            tier = "Tier 3 (Large Enterprises)"
+        elif self.risk_reporting == 'Real-time with global monitoring':
+            tier = "Tier 4 (Global Enterprises)"
+        
+        if self.alerts == 'Basic (email only)':
+            tier = "Tier 1 (Small Businesses)"
+        elif self.alerts == 'Advanced (email & SMS)':
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.alerts == 'Instant, customizable':
+            tier = "Tier 3 (Large Enterprises)"
+        elif self.alerts == 'Custom global alerts':
+            tier = "Tier 4 (Global Enterprises)"
+        
+        if self.data_integrations == 2:
+            tier = "Tier 1 (Small Businesses)"
+        elif self.data_integrations == 5:
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.data_integrations == 10:
+            tier = "Tier 3 (Large Enterprises)"
+        elif self.data_integrations == 'Unlimited':
+            tier = "Tier 4 (Global Enterprises)"
+        
+        if self.predictive_analytics == 'Basic trend detection':
+            tier = "Tier 1 (Small Businesses)"
+        elif self.predictive_analytics == 'Sentiment analysis & predictions':
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.predictive_analytics == 'Advanced scenario planning':
+            tier = "Tier 3 (Large Enterprises)"
+        elif self.predictive_analytics == 'Custom AI-driven models':
+            tier = "Tier 4 (Global Enterprises)"
+        
+        if self.support == '24/7 online support':
+            tier = "Tier 1 (Small Businesses)"
+        elif self.support == 'Priority support':
+            tier = "Tier 2 (Mid-Sized Enterprises)"
+        elif self.support == 'Dedicated account manager':
+            tier = "Tier 3 (Large Enterprises)"
+        elif self.support == 'Dedicated support team + VIP support':
+            tier = "Tier 4 (Global Enterprises)"
+        
+        return tier
+
+
+# Example usage:
+
+# Input data for the business (example values)
+suppliers = 10  # Number of suppliers
+risk_reporting = 'Daily'  # Risk reporting frequency
+alerts = 'Advanced (email & SMS)'  # Alerts setting
+data_integrations = 5  # Number of data integrations
+predictive_analytics = 'Sentiment analysis & predictions'  # Predictive analytics level
+support = 'Priority support'  # Support level
+
+# Create the business instance with the provided data
+business = BusinessTier(suppliers, risk_reporting, alerts, data_integrations, predictive_analytics, support)
+
+# Classify the business into a tier
+tier = business.classify_tier()
+print(f"The business qualifies for: {tier}")
